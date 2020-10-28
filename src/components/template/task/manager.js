@@ -23,7 +23,7 @@ export default function Manager(props) {
   const handleSelect = async (e) => {
     let param = getYear() + fillWithZeros(e.target.value);
     let filterList = await ServerGetByDateFinishTask(param);
-    setTaskFilter(filterList);
+    setTaskFilter(filterList.tasks);
   }
   
   return(

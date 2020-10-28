@@ -14,10 +14,10 @@ function Select({
       className={`form-select ${className}`}
       onChange={onChange}
     >
-      <option children={defaultText} value="" selected="true" disabled="disabled" />
+      <option children={defaultText} selected={true} disabled />
       {options?.map((op) => (
         <option key={op.id} value={op.id}>
-          {op.name || op.description || op.code}
+          {op.name || op.description}
         </option>
       ))}
     </select>

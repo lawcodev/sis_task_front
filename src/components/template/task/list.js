@@ -1,5 +1,5 @@
 import React from 'react'
-import RowList from './row-list-table'
+import RowListTable from './row-list-table'
 
 export default function List({tasks}) {
   return(
@@ -45,7 +45,7 @@ export default function List({tasks}) {
           {
             tasks.map((task, index) => {
               return(
-                <RowList task={task} index={index + 1} key={task.task_id} />
+                <RowListTable task={task} index={index + 1} key={task.task_id} />
               )
             })
           }
