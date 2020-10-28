@@ -1,1 +1,1 @@
-export const BASE_URL_DEV = "http://localhost/projects/sis_task";
+export const BASE_URL_DEV = "http://localhost/projects/server";
