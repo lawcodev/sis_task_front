@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import List from './list';
 import FilterFormControl from './filter'
-import { ServerGetByDateFinishTask } from '../../../services/task/services-task'
+import { ServiceGetByDateFinishTask } from '../../../services/task/services-task'
 import { fillWithZeros, getYear } from '../../../utils/general-functions'
 
 // function useGetAllTask() {
@@ -22,7 +22,7 @@ export default function Manager(props) {
 
   const handleSelect = async (e) => {
     let param = getYear() + fillWithZeros(e.target.value);
-    let filterList = await ServerGetByDateFinishTask(param);
+    let filterList = await ServiceGetByDateFinishTask(param);
     setTaskFilter(filterList.tasks);
   }
   
