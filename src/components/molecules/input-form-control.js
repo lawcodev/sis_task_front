@@ -13,7 +13,6 @@ export default function (props) {
     label = true,
     max,
     min,
-    setFocus,
     ...rest
   } = props;
   const [message, setMessage] = useState("");
@@ -49,7 +48,6 @@ export default function (props) {
         onChange={onChange}
         min={min} 
         max={max}
-        setFocus={setFocus}
         // {...rest}
       />
       <div className="invalid-feedback">{message}</div>

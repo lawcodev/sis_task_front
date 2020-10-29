@@ -8,7 +8,6 @@ function Input({
   className = "form-control",
   max,
   min,
-  setFocus,
   ...props
 }) {
   return (
@@ -20,7 +19,6 @@ function Input({
       className={className}
       max={max}
       min={min}
-      setFocus={setFocus}
       {...props}
     />
   );

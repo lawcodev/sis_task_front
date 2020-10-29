@@ -1,7 +1,22 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 
-export default function Navbar() {
+function Navbar(props) {
+  const handleRedirect = (e, param) => {
+    e.preventDefault();
+    switch (param) {
+      case "tasks":
+        props.history.push({
+          pathname: '/tasks',
+          params: 'Octubre'
+        });
+        break;
+        default:
+          break;
+      }
+  }
+      
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -22,9 +37,9 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink to="/tasks" className="nav-link">
+              <span style={{cursor: 'pointer'}} onClick={e => handleRedirect(e, 'tasks')} className="nav-link">
                 Tareas
-              </NavLink>
+              </span>
             </li>
             {/* <li>
               <NavLink to="/projects" className="nav-link">
@@ -37,3 +52,4 @@ export default function Navbar() {
     </nav>
   );
 }
+export default withRouter(Navbar);

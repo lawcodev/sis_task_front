@@ -26,7 +26,7 @@ export function getValueMonth(value) {
     case 'Abril':
       monthValue = '04';
       break;
-    case 'Mayor':
+    case 'Mayo':
       monthValue = '05';
       break;
     case 'Junio':

@@ -3,9 +3,10 @@ import TaskList from './list';
 import FilterFormControl from './filter'
 import { ServiceGetByDateFinishTask } from '../../../services/task/services-task';
 import { ServiceGetAllTypes } from '../../../services/type/service-type';
-import { getValueMonth, getYear } from '../../../utils/general-functions';
+import { fillWithZeros, getYear } from '../../../utils/general-functions';
 import { Modal } from "../../molecules/";
 import Form from './form';
+import { withRouter } from 'react-router-dom';
 
 function useGetAllTypes() {
   const [types, setTypes] = useState([]);
@@ -19,7 +20,7 @@ function useGetAllTypes() {
   return {types}
 }
 
-export default function Manager(props) {
+function Manager(props) {
   const {types} = useGetAllTypes(props);
   const [taksFilter, setTaskFilter] = useState([]);
   const [modal, setModal] = useState(false);
@@ -27,8 +28,7 @@ export default function Manager(props) {
   const [typeModal, setTypeModal] = useState('')
   //Capturamos valor para filtrar las tareas
   const handleSelect = async (e) => {
-    console.log(e);
-    let param = getYear() + getValueMonth(e.label);
+    let param = getYear() + '' + fillWithZeros(e.value);
     let filterList = await ServiceGetByDateFinishTask(param);
     setTaskFilter(filterList.tasks);
   }
@@ -73,6 +73,10 @@ export default function Manager(props) {
             size={"modal-lg"}
             onClose={handleClose}
           >
+          <Form
+            types={types}
+            typeModal={typeModal}
+          />
           </Modal>
         )
       }
@@ -86,6 +90,7 @@ export default function Manager(props) {
             <Form
               task={task}
               types={types}
+              typeModal={typeModal}
             />
           </Modal>
         )
@@ -93,3 +98,4 @@ export default function Manager(props) {
     </>
   )
 }
+export default withRouter(Manager);
