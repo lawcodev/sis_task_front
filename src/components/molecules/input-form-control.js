@@ -7,7 +7,7 @@ export default function (props) {
     children,
     matchName,
     type = "text",
-    value = "",
+    defaultValue = "",
     error,
     onChange,
     label = true,
@@ -16,24 +16,24 @@ export default function (props) {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    if (rest.required && !value) {
+    if (rest.required && !defaultValue) {
       setMessage("*Requerido");
       return;
     }
-    if (rest.minLength && value.length <= rest.minLength) {
+    if (rest.minLength && defaultValue.length <= rest.minLength) {
       setMessage(`*Mínimo ${rest.minLength} caracteres`);
       return;
     }
-    if (rest.maxLength && value.length >= rest.maxLength) {
+    if (rest.maxLength && defaultValue.length >= rest.maxLength) {
       setMessage(`*Máximo ${rest.maxLength} caracteres`);
       return;
     }
-    if (rest.min && value < rest.min) {
+    if (rest.min && defaultValue < rest.min) {
       setMessage(`*Valor mínimo ${rest.min}`);
       return;
     }
     setMessage("");
-  }, [rest.required, rest.minLength, rest.maxLength, value, rest.min]);
+  }, [rest.required, rest.minLength, rest.maxLength, defaultValue, rest.min]);
 
   return (
     <div className={className}>
@@ -42,9 +42,9 @@ export default function (props) {
         type={type}
         id={matchName}
         name={matchName}
-        value={type === "number" ? parseFloat(value).toFixed(2) : value}
+        defaultValue={type === "number" ? parseFloat(defaultValue).toFixed(2) : defaultValue}
         onChange={onChange}
-        {...rest}
+        // {...rest}
       />
       <div className="invalid-feedback">{message}</div>
     </div>

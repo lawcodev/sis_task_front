@@ -6,7 +6,7 @@ export default function Navbar() {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
-          <strong>SISTASK</strong>
+          <span className="font-weight-bold">SISTASK</span>
         </NavLink>
         <button
           className="navbar-toggler"
@@ -26,11 +26,11 @@ export default function Navbar() {
                 Tareas
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink to="/projects" className="nav-link">
                 Proyectos
               </NavLink>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

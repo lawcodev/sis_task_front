@@ -1,10 +1,10 @@
 import React from 'react'
 import RowListTable from './row-list-table'
 
-export default function List({tasks}) {
+export default function List({tasks, handleUpdate}) {
   return(
     <div className="table table-responsive">
-      <table className="table table-bordered">
+      <table className="table table-bordered table-hover">
         <thead>
           <tr>
             <th colSpan="7" className="font-weight-bold" style={{background: '#144980', color: 'white'}}>
@@ -39,13 +39,19 @@ export default function List({tasks}) {
               %Plan <br />
               <small>(Porc... plan)</small>
             </th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           {
             tasks.map((task, index) => {
               return(
-                <RowListTable task={task} index={index + 1} key={task.task_id} />
+                <RowListTable 
+                  task={task} 
+                  index={index + 1} 
+                  key={task.task_id} 
+                  handleUpdate={e => handleUpdate(e, task)} 
+                />
               )
             })
           }

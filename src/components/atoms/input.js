@@ -13,7 +13,7 @@ function Input({
       type={type}
       id={id}
       name={name}
-      value={value}
+      defaultValue={value}
       className={className}
       {...props}
     />

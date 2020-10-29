@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Select } from "../atoms";
+import { Select, Label } from "../atoms";
 
 export default function (props) {
   const {
@@ -25,6 +25,7 @@ export default function (props) {
 
   return (
     <div className={classNameDiv}>
+      <Label children={children} htmlFor={matchName} />
       <Select
         id={matchName}
         name={matchName}

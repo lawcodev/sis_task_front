@@ -1,7 +1,7 @@
 import React from 'react'
 import SelectedFormControl from '../../molecules/select-form-control'
 
-export default function Filter({handleSelect}) {
+export default function Filter({handleSelect, handleCreate, handleClose}) {
   let months = [
     {
       id: 1,
@@ -53,23 +53,21 @@ export default function Filter({handleSelect}) {
     }
   ]
   return(
-    <>
-      <div className="row mb-3 mt-3">
-        <SelectedFormControl
-          children="Mes"
-          className="browser-default custom-select"
-          classNameDiv="col-md-4"
-          options={months}
-          defaultValue={10}
-          onChange={handleSelect}
-          required
-        />
-        <div className="col-md-4">
-          <button className="btn btn-success">
-            Crear task
-          </button>
-        </div>
+    <div className="row mb-3 mt-3">
+      <SelectedFormControl
+        // children="Mes"
+        className="browser-default custom-select"
+        classNameDiv="col-md-4"
+        options={months}
+        defaultValue={10}
+        onChange={handleSelect}
+        required
+      />
+      <div className="col-md-4">
+        <button className="btn btn-success" onClick={handleCreate}>
+          Crear task
+        </button>
       </div>
-    </>
+    </div>
   )
 }
