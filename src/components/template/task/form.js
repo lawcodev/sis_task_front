@@ -115,7 +115,16 @@ export default function Form({
         <div className="card-footer">
           <div className="row" style={{float: "right"}}>
             <div className="col-md-12">
-              <button className="btn btn-success">Actualizar tarea</button>
+              {
+                typeModal === 'new' ?
+                <button className="btn btn-success">
+                  Crear nueva tarea
+                </button>
+                :
+                <button className="btn btn-success">
+                  Actualizar tarea
+                </button>
+              }
             </div>
           </div>
         </div>
