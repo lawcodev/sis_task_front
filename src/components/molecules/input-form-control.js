@@ -11,6 +11,9 @@ export default function (props) {
     error,
     onChange,
     label = true,
+    max,
+    min,
+    setFocus,
     ...rest
   } = props;
   const [message, setMessage] = useState("");
@@ -44,6 +47,9 @@ export default function (props) {
         name={matchName}
         defaultValue={type === "number" ? parseFloat(defaultValue).toFixed(2) : defaultValue}
         onChange={onChange}
+        min={min} 
+        max={max}
+        setFocus={setFocus}
         // {...rest}
       />
       <div className="invalid-feedback">{message}</div>

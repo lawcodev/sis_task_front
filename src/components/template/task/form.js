@@ -1,4 +1,5 @@
 import React from 'react';
+import { Badge } from '../../atoms'
 import { 
   InputFormControl,
   // SelectedFormControl
@@ -25,6 +26,7 @@ export default function Form({
               matchName="title"
               className={'col-md-12'}
               defaultValue={task.title}
+              setFocus={true}
             />
             <InputFormControl 
               children={'Fecha inicio'}
@@ -45,6 +47,8 @@ export default function Form({
               matchName="percentage_plan"
               className={'col-md-3'}
               type='number'
+              max={100}
+              min={0}
               defaultValue={task.percentage_plan}
             />
             {/* <SelectedFormControl
@@ -65,6 +69,9 @@ export default function Form({
                 placeholder='Estado tarea'
                 components={{ Option }}
               />
+            </div>
+            <div className="col-md-3" style={{marginTop: '2.35em'}}>
+              <Badge value={parseInt(task.type.value)} text={task.type.label} />
             </div>
           </div>
         </div>
