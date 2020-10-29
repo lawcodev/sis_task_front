@@ -21,7 +21,7 @@ export default function RowList({task, index, handleUpdate}) {
       </td>
       <td>{task.start}</td>
       <td>{task.end}</td>
-      <td><Badge value={parseInt(task.type.type_id)} text={task.type.name} /></td>
+      <td><Badge value={parseInt(task.type.value)} text={task.type.label} /></td>
       <td style={{width: '2.5em'}}>{task.percentage_plan}%</td>
       <td>
         <button className="btn btn-success" onClick={handleUpdate}>+</button>

@@ -3,7 +3,7 @@ import TaskList from './list';
 import FilterFormControl from './filter'
 import { ServiceGetByDateFinishTask } from '../../../services/task/services-task';
 import { ServiceGetAllTypes } from '../../../services/type/service-type';
-import { fillWithZeros, getYear } from '../../../utils/general-functions';
+import { getValueMonth, getYear } from '../../../utils/general-functions';
 import { Modal } from "../../molecules/";
 import Form from './form';
 
@@ -27,7 +27,8 @@ export default function Manager(props) {
   const [typeModal, setTypeModal] = useState('')
   //Capturamos valor para filtrar las tareas
   const handleSelect = async (e) => {
-    let param = getYear() + fillWithZeros(e.target.value);
+    console.log(e);
+    let param = getYear() + getValueMonth(e.label);
     let filterList = await ServiceGetByDateFinishTask(param);
     setTaskFilter(filterList.tasks);
   }

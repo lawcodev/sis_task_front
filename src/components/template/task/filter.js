@@ -1,68 +1,83 @@
 import React from 'react'
-import SelectedFormControl from '../../molecules/select-form-control'
+// import SelectedFormControl from '../../molecules/select-form-control'
+import Select, { components } from 'react-select';
 
 export default function Filter({handleSelect, handleCreate, handleClose}) {
   let months = [
     {
-      id: 1,
-      name: "Enero"
+      value: 1,
+      label: "Enero"
     }, 
     {
-      id: 2,
-      name: "Febrero"
+      value: 2,
+      label: "Febrero"
     }, 
     {
-      id: 3,
-      name: "Marzo"
+      value: 3,
+      label: "Marzo"
     }, 
     {
-      id: 4,
-      name: "Abril"
+      value: 4,
+      label: "Abril"
     }, 
     {
-      id: 5,
-      name: "Mayo"
+      value: 5,
+      label: "Mayo"
     },
     {
-      id: 6,
-      name: "Junio"
+      value: 6,
+      label: "Junio"
     },
     {
-      id: 7,
-      name: "Julio"
+      value: 7,
+      label: "Julio"
     },
     {
-      id: 8,
-      name: "Agosto"
+      value: 8,
+      label: "Agosto"
     },
     {
-      id: 9,
-      name: "Septiembre"
+      value: 9,
+      label: "Septiembre"
     },
     {
-      id: 10,
-      name: "Octubre"
+      value: 10,
+      label: "Octubre"
     },
     {
-      id: 11,
-      name: "Noviembre"
+      value: 11,
+      label: "Noviembre"
     },
     {
-      id: 12,
-      name: "Diciembre"
+      value: 12,
+      label: "Diciembre"
     }
   ]
+  const Option = props => {
+    return (
+      <span title={props.data.nombre}>
+        <components.Option {...props} />
+      </span>
+    );
+  };
   return(
     <div className="row mb-3 mt-3">
-      <SelectedFormControl
+      {/* <SelectedFormControl
         // children="Mes"
         className="browser-default custom-select"
         classNameDiv="col-md-4"
         options={months}
-        defaultValue={10}
         onChange={handleSelect}
         required
-      />
+      /> */}
+      <div className="col-md-4">
+        <Select
+          options={months}
+          onChange={handleSelect}
+          placeholder='Selecciona mes'
+          components={{ Option }}
+        />
+      </div>
       <div className="col-md-4">
         <button className="btn btn-success" onClick={handleCreate}>
           Crear task

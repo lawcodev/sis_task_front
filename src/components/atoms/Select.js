@@ -15,8 +15,8 @@ function Select({
       onChange={onChange}
     >
       <option children={defaultText} selected={true} disabled />
-      {options?.map((op) => (
-        <option key={op.id} value={op.id}>
+      {options.map((op) => (
+        <option key={op.id} defaultValue={op.id}>
           {op.name || op.description}
         </option>
       ))}
